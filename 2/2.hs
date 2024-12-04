@@ -26,8 +26,7 @@ gradual x xs = if (abs (x - (head xs)) < 4) then gradual (head xs) (tail xs) els
 main = do
         inputFile <- openFile "./input" ReadMode
         contents <- hGetContents inputFile
-        let splitWords = [ words x | x <- lines contents ];
-        let splitNums =  [ map (read::String->Int) x | x <- splitWords ];
+        let splitNums = [map (read::String->Int) (words x) | x <- lines contents ];
         let count = [ if (ascending (head x) (tail x)) == True then 
                 (if (gradual (head x) (tail x)) == True then 1 else 0 )
             else if (descending (head x) (tail x)) == True then 

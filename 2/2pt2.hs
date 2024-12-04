@@ -39,8 +39,7 @@ safe xs = if (ascending (head xs) (tail xs)) == True then
 main = do
         inputFile <- openFile "./input" ReadMode
         contents <- hGetContents inputFile
-        let splitWords = [ words x | x <- lines contents ];
-        let splitNums =  [ map (read::String->Int) x | x <- splitWords ];
+        let splitNums = [map (read::String->Int) (words x) | x <- lines contents ];
         let count = [ if safe x == True then 1 
             else if doubleCheckSafe x 0 == True then 1 
             else 0 | x <- splitNums ];
