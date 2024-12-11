@@ -13,7 +13,6 @@ sumList :: [Int] -> Int
 sumList [] = 0
 sumList (x:xs) = x + sumList xs
 
--- splitAtDo :: [String] -> [String]
 splitAtDo :: [String] -> [String]
 splitAtDo [] = []
 splitAtDo xs = case (Data.List.splitAt (fromMaybe 0 (elemIndex "do()" xs))) xs of
