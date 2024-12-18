@@ -8,6 +8,7 @@ import Text.Read (readMaybe)
 parseTuple :: String -> Maybe (Int, Int)
 parseTuple s = readMaybe s :: Maybe (Int, Int)
 
+-- Sumlist
 sumList :: [Int] -> Int
 sumList [] = 0
 sumList (x:xs) = x + sumList xs
